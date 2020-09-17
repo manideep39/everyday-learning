@@ -1,0 +1,42 @@
+{
+  "orders": [
+    {
+      "id": "huysd77765",
+      "customer_mob": 9160212222,
+      "first_name": "Manideep",
+      "last_name": "Pullala",
+      "customer_email": "usdfsdfsdsdii@gmail.com",
+      "total_amount": 100000,
+      "amount_payable": 120000,
+      "gst": 18,
+      "items": [
+        {
+          "product_id": 1,
+          "quantity": 2,
+          "price": 676766,
+          "product_name": "Apple device"
+        },
+        {
+          "product_id": 2,
+          "quantity": 2,
+          "price": 3333,
+          "product_name": "Lenovo Watch"
+        },
+        {
+          "product_id": 3,
+          "quantity": 4,
+          "price": 76655,
+          "product_name": "Dell Laptop"
+        },
+        {
+          "product_id": 4,
+          "quantity": 7,
+          "price": 34344,
+          "product_name": "MS tsudd"
+        }
+      ],
+      "date_purchased": 1600358735291,
+      "document_sent": false
+    }
+  ]
+}

@@ -51,9 +51,9 @@ describe("visit page and edit document", () => {
           })
 
           cy.get('button').contains('Send document').click()
-          axios.patch(`http://localhost:3000/orders/${id}`, {
-            document_sent: true
-          })
+          // axios.patch(`http://localhost:3000/orders/${id}`, {
+          //   document_sent: true
+          // })
         }
 
       });

@@ -5,12 +5,19 @@ describe("visit page and edit document", () => {
     it("visit home page and do sign-in", async () => {
       cy.visit("https://auth.revvsales.com/signin");
       await cy.readFile('../MOCK_SERVER/db.json').then((data) => {
-        const order = data.orders.find(items => !items.document_sent)
-          console.log(order)
+        const order = data.orders[data.orders.length - 1]
+          console.log(data, order)
 
         if (order !== undefined) {
           
-          const { order_id, items, date_purchased, document_sent, customer_mob, customer_email, first_name, last_name, total_amount, amount_payable, gst } = order;
+          let { id, items, date_purchased, document_sent, customer_mob, customer_email, first_name, last_name, total_amount, amount_payable, gst } = order;
+
+          if (first_name === undefined) {
+            first_name = '-'
+          }
+          if (last_name === undefined) {
+            last_name = '-'
+          }
 
           cy.get("#signin-email-field").type("manideep.naidu@outlook.com");
           cy.get("#signin-email-continue-btn").click();
@@ -20,10 +27,10 @@ describe("visit page and edit document", () => {
           cy.get('a[href="/template/9"]').click()
           cy.get('[data-test="templatedetails-create-doc-button"]').click()
           cy.get('[data-test="quotationtopbarinfo-docname"]').click()
-          cy.get('input[name="docName"]').clear().type('digi_sale_receipt-' + order_id)
+          cy.get('input[name="docName"]').clear().type('digi_sale_receipt-' + id)
 
           cy.get('[placeholder="Enter Customer Name"]').type(first_name +" "+ last_name)
-          cy.get('[placeholder="Enter Phone Number"]').type(customer_mob)
+          cy.get('[placeholder="Enter Phone Number"]').type(customer_mob.length > 0 ? customer_mob : "0000000000")
           cy.get('[placeholder="Enter Email Address"]').type(customer_email)
 
           items.map((item, i) => {

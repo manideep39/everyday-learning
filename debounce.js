@@ -28,6 +28,7 @@ let de = debounce(500, justLogHello)
 
 let i = 0;
 while (i < 5) {
+  console.log(i)
   de("hello")
   i++
 }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      height: 300px;
+      width: 300px;
+      background-color: purple;
+      transition-property: background-color, border-radius;
+      transition-duration: 1s;
+      transition-delay: 0s, 1s;
+      transition-timing-function: ease-out;
+    }
+    .box:hover {
+      background-color: red;
+      border-radius: 20px ;
+    }
+
+    .button {
+      width: fit-content;
+      padding: 10px 20px;
+      background-color: red;
+      color: wheat;
+      transition: background-color, 200ms, ease-out;
+    }
+
+    .button:hover {
+      background-color: purple;
+    }
+    .button:active {
+      background-color: red;
+    }
+
+    .ball {
+      height: 200px;
+      width: 200px;
+      background-color: red;
+      border-radius: 100px;
+      animation-name: bounce;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+        background-color: red;
+      }
+
+      50% {
+        transform: translateY(500px);
+        background-color: black;
+      }
+      100% {
+        transform: translateY(0);
+        background-color: green;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="ball"></div>
+  <div class="box"></div>
+  <button class="button">Click me</button>
+</body>
+</html>

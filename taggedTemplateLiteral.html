@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tagged Template Literal</title>
+  <style>
+    .hl {
+      background: #ffc600
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    function highlight(strings, ...values) {
+      let str = '';
+      strings.forEach((string, i) => {
+        str += `${string} <span class='hl'>${values[i] || ''}</span>`;
+      });
+      return str;
+    }
+    const dogName = 'Charlie';
+    const age = 2
+    const sentence = highlight`My dog name is ${dogName} and he is ${age} years old`
+    document.body.innerHTML = sentence;
+  </script>
+</body>
+
+</html>
